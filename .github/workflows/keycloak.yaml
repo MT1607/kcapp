@@ -47,6 +47,9 @@ jobs:
 
       - name: Build keycloak kcapp
         run: yarn build-keycloak-theme
+      
+      - name: Build keycloakify
+        run: yarn keycloakify
 
   build-kc-S3:
     name: Deploy KCApp application
