@@ -57,7 +57,7 @@ jobs:
           echo "::set-output name=affected_apps::$(./node_modules/.bin/nx affected:apps --plain)"
 
       - name: Saving SpeechImpactApp build as artifact
-        if: ${{contains(steps.get-affected-apps.outputs.affected_apps, 'speech-impact-webapp')}}
+        if: ${{contains(steps.get-affected-apps.outputs.affected_apps, "speech-impact-webapp")}}
         uses: actions/upload-artifact@v3
         with:
           name: speechimpact-artifact
