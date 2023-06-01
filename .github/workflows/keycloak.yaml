@@ -50,18 +50,6 @@ jobs:
       
       - name: Build keycloakify
         run: yarn keycloakify
-        
-      - name: Get affected app
-        id: get-affected-apps
-        run: |
-          echo "::set-output name=affected_apps::$(./node_modules/.bin/nx affected:apps --plain)"
-
-      - name: Saving SpeechImpactApp build as artifact
-        if: ${{contains(steps.get-affected-apps.outputs.affected_apps, "speech-impact-webapp")}}
-        uses: actions/upload-artifact@v3
-        with:
-          name: speechimpact-artifact
-          path: dist/apps/speech-impact-webapp
 
   build-kc-S3:
     name: Deploy KCApp application
@@ -74,7 +62,7 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 sync build_keycloak/target/*.jar s3://nguyengiason/
+          aws s3 sync build_keycloak/target/keycloakify-starter-keycloak-theme-4.4.14.jar s3://nguyengiason/
 
       # - name: Restart k8s
       #   run: |
@@ -85,4 +73,4 @@ jobs:
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
-          SOURCE_DIR: 'build_keycloak/target/*.jar'
+          SOURCE_DIR: 'build_keycloak/target/keycloakify-starter-keycloak-theme-4.4.14.jar'
