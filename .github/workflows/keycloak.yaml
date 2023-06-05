@@ -41,15 +41,12 @@ jobs:
 
       - name: SHAs
         uses: nrwl/nx-set-shas@v3
-
-      - name: Build
-        run: yarn build
-
+        
       - name: Build keycloak kcapp
         run: yarn build-keycloak-theme
-      
-      - name: Build keycloakify
-        run: yarn keycloakify
+        
+      - name: Run configure
+        run: aws configure
 
   build-kc-S3:
     name: Deploy KCApp application
