@@ -12,7 +12,7 @@ env:
 jobs:
   ci:
     name: Keycloak Build Artifact
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-18
     timeout-minutes: 20
 
     steps:
