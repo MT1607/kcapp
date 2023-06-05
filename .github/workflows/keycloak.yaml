@@ -5,8 +5,8 @@ on:
       - 'main'
 env:
   AWS_S3_BUCKET: 'nguyengiason'
-  AWS_ACESS_KEY_ID: ${{secrets.AWS_ACESS_KEY_ID}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_ACESS_KEY_ID: AKIASUXIQ7NU6SMTO75F
+  AWS_SECRET_ACCESS_KEY: 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
   AWS_REGION: 'ap-southeast-1'
 
 jobs:
